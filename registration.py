@@ -1,4 +1,9 @@
+#! /usr/bin/python3
+# -*- coding: utf-8 -*-
+
 class User:
+    ''' Класс, що описує користувача '''
+    
     def __init__(self, username, email, password, full_name, age, home_address):
         self.username: str = username
         self.email: str = email
@@ -12,6 +17,8 @@ class User:
 
 
 class UserBuilder:
+    ''' Будівельник користувача. '''
+    
     def __init__(self, username, email, password):
         self.username: str = username
         self.email: str = email
