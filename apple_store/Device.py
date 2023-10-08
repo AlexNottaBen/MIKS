@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 class OriginalRefurbishedDevice:
-    ''' Realization of the original restored device '''
+    ''' Realization of the original refurbished device '''
 
     def __str__(self) -> str:
         return "Оригінальний відновлений пристрій"
