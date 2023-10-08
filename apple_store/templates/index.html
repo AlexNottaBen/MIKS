@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оригінали та репліки</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/style.min.css') }}">
+</head>
+<body>
+    <main>
+        <form action="/" method="POST">
+            <button type="submit" style="position: fixed; margin-top: -4%">
+                Ще одна спроба
+            </button>
+        </form>
+        <ol>
+            {% for item in items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ol>
+    </main>
+</body>
+</html>
