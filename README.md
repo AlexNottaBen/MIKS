@@ -4,7 +4,7 @@
     <tbody>
         <tr>
             <td style="width: 50%;">Variant<br></td>
-            <td style="width: 50%;">9<br></td>
+            <td style="width: 50%;">17<br></td>
         </tr>
         <tr>
             <td style="width: 50%;">IDE<br></td>
