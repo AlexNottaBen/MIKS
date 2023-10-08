@@ -13,13 +13,13 @@ items = []
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    # Створення об'єкта фабрики на основі випадкового вибору
+    # Create a factory object based on a random selection
     if choice([True, False]):
         factory = OriginalRefurbishedDeviceFactory()
     else:
         factory = ReplicaDeviceFactory()
 
-    # Створення пристрою з використанням фабрики
+    # Creating a device using a factory
     device = factory.create_device()
 
     items.append(device)

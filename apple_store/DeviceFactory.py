@@ -4,17 +4,18 @@
 from IDeviceFactory import IDeviceFactory
 from Device import OriginalRefurbishedDevice, ReplicaDevice
 
+
 class OriginalRefurbishedDeviceFactory(IDeviceFactory):
-    ''' Конкретна фабрика для оригінальних відновлених пристроїв '''
+    ''' A specific factory for original refurbished devices '''
 
     def create_device(self):
-        # Реалізація створення оригінальних пристроїв
+        # Implementation of creation of original devices
         return OriginalRefurbishedDevice()
 
 
 class ReplicaDeviceFactory(IDeviceFactory):
-    ''' Конкретна фабрика для реплік з одеського підвалу '''
+    ''' A concrete factory for replicas from the Odessa basement '''
 
     def create_device(self):
-        # Реалізація створення реплік
+        # Implementation of creation of replicas
         return ReplicaDevice()

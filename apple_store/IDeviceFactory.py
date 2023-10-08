@@ -3,8 +3,9 @@
 
 from abc import ABC, abstractmethod
 
+
 class IDeviceFactory(ABC):
-    ''' Інтерфейс абстрактної фабрики '''
+    ''' Abstract factory interface '''
 
     @abstractmethod
     def create_device(self):

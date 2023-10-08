@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 
 class OriginalRefurbishedDevice:
-    ''' Реалізація оригінального відновленого приладу '''
-    
+    ''' Realization of the original restored device '''
+
     def __str__(self) -> str:
         return "Оригінальний відновлений пристрій"
 
 
 class ReplicaDevice:
-    ''' Реалізація репліки з одеського підвалу '''
-    
+    ''' Realization of the replica from the Odessa basement '''
+
     def __str__(self) -> str:
         return "Репліка з одеського підвалу"
