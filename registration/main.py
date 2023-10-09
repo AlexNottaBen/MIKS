@@ -30,7 +30,7 @@ def index():
         cardholder_name = request.form['cardholder-name']
         
         if password != confirm_password:
-            return "Паролі не збігаються!"
+            return "<h1>Паролі не збігаються!<h1>"
         
         user1 = UserBuilder(username, email, password, birthday) \
             .set_full_name(full_name) \
@@ -43,7 +43,7 @@ def index():
             .set_card_expire_year(card_expire_year) \
             .build()
         
-        return str(user1)
+        return f'<h1>{user1}</h1>'.replace("\n","<br>")
 
 
 def main():

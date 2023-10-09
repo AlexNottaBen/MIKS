@@ -18,37 +18,37 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label for="username">Ім'я користувача<b>*</b></label>
-                        <input class="form-control" minlength="5" maxlength="32" type="text" id="username" name="username" required>
+                        <input class="form-control" minlength="5" maxlength="32" type="text" id="username" name="username" placeholder="Ваше унікальне ім'я або псевдонім" required>
                     </div>
                     <div class="form-group">
-                        <label for="full-name">ПІБ</label>
-                        <input class="form-control" minlength="5" maxlength="64" type="text" id="full-name" name="full-name">
+                        <label for="full-name">Повне ім'я</label>
+                        <input class="form-control" minlength="5" maxlength="64" type="text" id="full-name" name="full-name" placeholder="Ваше повне ім'я">
                     </div>
                     <div class="form-group">
                         <label for="email">Адрес електронної пошти<b>*</b></label>
-                        <input class="form-control" minlength="5" maxlength="32" type="email" id="email" name="email" required>
+                        <input class="form-control" minlength="5" maxlength="32" type="email" id="email" name="email" placeholder="example@email.org" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Пароль<b>*</b></label>
-                        <input class="form-control" minlength="8" maxlength="128" type="password" id="password" name="password" required>
+                        <input class="form-control" minlength="8" maxlength="128" type="password" id="password" name="password" placeholder="Пароль не коротше 8 символів" required>
                     </div>
                     <div class="form-group">
-                        <label for="confirm-password">Подтвердите пароль<b>*</b></label>
-                        <input class="form-control" minlength="8" maxlength="128" type="password" id="confirm-password" name="confirm-password" required>
+                        <label for="confirm-password">Повторити пароль<b>*</b></label>
+                        <input class="form-control" minlength="8" maxlength="128" type="password" id="confirm-password" name="confirm-password" placeholder="Повторить пароль" required>
                     </div>
                     <div class="form-group">
                         <label for="birthday">Дата народження<b>*</b></label>
                         <input class="form-control" max="2005-12-31" type="date" id="birthday" name="birthday" required>
                     </div>
                     <div class="form-group">
-                        <label for="home-address">Домашня адресса</label>
-                        <input class="form-control" minlength="8" maxlength="128" type="text" id="home-address" name="home-address">
+                        <label for="home-address">Домашня адреса</label>
+                        <input class="form-control" minlength="8" maxlength="128" type="text" id="home-address" name="home-address" placeholder="Де проживаете?">
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="form-group">
                         <label for="phone-number">Номер мобільного телефону</label>
-                        <input class="form-control" minlength="10" maxlength="10" type="text" id="phone-number" name="phone-number">
+                        <input class="form-control" minlength="10" maxlength="10" type="text" id="phone-number" name="phone-number" placeholder="0506814663">
                     </div>
                     <div class="form-group my-7percent">
                         <label for="gender">Стать</label>
@@ -58,12 +58,12 @@
                             <option onclick="gender=document.getElementById('gender');gender.style.visibility='hidden';gender.value='жіночії'">Жіночії</option>
                             <option onclick="gender=document.getElementById('gender');gender.style.visibility='visible';gender.value='інше'">Інше</option>
                         </select>
-                        <input type="text" name="gender" id="gender" maxlength="32" style="visibility: hidden" value='не вказано'>
+                        <input type="text" name="gender" id="gender" maxlength="32" style="visibility: hidden" value='не вказано' placeholder="А хто ви?">
                     </div>
                     <h2>Платіжна інформація</h2>
                     <div class="form-group mb-1percent">
                         <label for="card-number">Номер кредитної або дебетової картки:</label>
-                        <input class="form-control" minlength="16" maxlength="16" type="text" id="card-number" name="card-number">
+                        <input class="form-control" minlength="16" maxlength="16" type="text" id="card-number" name="card-number" placeholder="5260000000000000">
                     </div>
                     <div>
                         <img src="{{ url_for('static', filename='images/visa-logo.png') }}" alt="visa" name="visa" class="payment-images">
@@ -71,24 +71,24 @@
                         <img src="{{ url_for('static', filename='images/amex-logo.png') }}" alt="amex" name="amex" class="payment-images">
                         <img src="{{ url_for('static', filename='images/discover-logo.jpg') }}" alt="discover" name="discover" class="payment-images">
                     </div>
-                    <p class="mt-1percent">Ми приймаємо всі основні кредитні та дебетові картки. Щоб дізнатися більше про варіанти оплати, перегляньте наші <a href="https://www.google.com/" target="blank">поширені запитання</a></p>
+                    <p class="mt-1percent">Ми приймаємо всі основні кредитні та дебетові картки. Якщо у вас є питання стосовно платіжної інформації - щиро просимо вас до <a href="https://www.google.com/" target="_blank">google</a>.</p>
                     <div class="form-control">
                         <label>Термін придатності</label>
                         <div style="float: right">
                             <select name="month" id="month">
                                 <option value="--">Місяць</option>
-                                <option value="january">Січень</option>
-                                <option value="february">Лютий</option>
-                                <option value="march">Березень</option>
-                                <option value="april">Квітень</option>
-                                <option value="may">Травень</option>
-                                <option value="june">Червень</option>
-                                <option value="july">Липень</option>
-                                <option value="augest">Серпень</option>
-                                <option value="september">Вересень</option>
-                                <option value="october">Жовтень</option>
-                                <option value="november">Листопад</option>
-                                <option value="december">Грудень</option>
+                                <option value="January">Січень</option>
+                                <option value="February">Лютий</option>
+                                <option value="March">Березень</option>
+                                <option value="April">Квітень</option>
+                                <option value="May">Травень</option>
+                                <option value="June">Червень</option>
+                                <option value="July">Липень</option>
+                                <option value="Augest">Серпень</option>
+                                <option value="September">Вересень</option>
+                                <option value="Jctober">Жовтень</option>
+                                <option value="November">Листопад</option>
+                                <option value="December">Грудень</option>
                             </select>
                             <select name="year" id="year">
                                 <option value="----">Рік</option>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="form-group">
                         <label for="cardholder-name">ім'я власника картки</label>
-                        <input class="form-control" minlength="5" maxlength="64" type="text" id="cardholder-name" name="cardholder-name">
+                        <input class="form-control" minlength="5" maxlength="64" type="text" id="cardholder-name" name="cardholder-name" placeholder="Повне ім'я власника картки">
                     </div>
                 </div>
             </div>

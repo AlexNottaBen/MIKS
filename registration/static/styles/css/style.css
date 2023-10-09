@@ -26,4 +26,12 @@
 
 b {
   color: red;
+}
+
+.btn-primary:hover {
+  text-decoration: underline;
+  background: yellow;
+  color: black;
+  cursor: pointer;
+  border-color: #e6e600;
 }/*# sourceMappingURL=style.css.map */
