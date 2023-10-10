@@ -24,37 +24,70 @@ class UserBuilder:
         self.card_expire_year: str = ''
         self.cardholder_name: str = ''
 
-    def set_full_name(self, full_name: str):
-        self.full_name = full_name
-        return self
+    @property
+    def full_name(self):
+        return self._full_name
 
-    def set_home_address(self, home_address: str):
-        self.home_address = home_address
-        return self
+    @full_name.setter
+    def full_name(self, full_name: str):
+        self._full_name = full_name
 
-    def set_phone_number(self, phone_number: str):
-        self.phone_number = phone_number
-        return self
+    @property
+    def home_address(self):
+        return self._home_address
 
-    def set_gender(self, gender: str):
-        self.gender = gender
-        return self
+    @home_address.setter
+    def home_address(self, home_address: str):
+        self._home_address = home_address
 
-    def set_card_number(self, card_number: str):
-        self.card_number = card_number
-        return self
+    @property
+    def phone_number(self):
+        return self._phone_number
 
-    def set_cardholder_name(self, cardholder_name: str):
-        self.cardholder_name = cardholder_name
-        return self
+    @phone_number.setter
+    def phone_number(self, phone_number: str):
+        self._phone_number = phone_number
 
-    def set_card_expire_month(self, card_expire_month: str):
-        self.card_expire_month = card_expire_month
-        return self
-    
-    def set_card_expire_year(self, card_expire_year: str):
-        self.card_expire_year = card_expire_year
-        return self
+    @property
+    def gender(self):
+        return self._gender
+
+    @gender.setter
+    def gender(self, gender: str):
+        self._gender = gender
+
+    @property
+    def card_number(self):
+        return self._card_number
+
+    @card_number.setter
+    def card_number(self, card_number: str):
+        self._card_number = card_number
+
+    @property
+    def cardholder_name(self):
+        return self._cardholder_name
+
+    @cardholder_name.setter
+    def cardholder_name(self, cardholder_name: str):
+        self._cardholder_name = cardholder_name
+
+    @property
+    def card_expire_month(self):
+        return self._card_expire_month
+
+    @card_expire_month.setter
+    def card_expire_month(self, card_expire_month: str):
+        self._card_expire_month = card_expire_month
+
+    @property
+    def card_expire_year(self):
+        return self._card_expire_year
+
+    @card_expire_year.setter
+    def card_expire_year(self, card_expire_year: str):
+        self._card_expire_year = card_expire_year
+
 
     def build(self) -> User:
         return User(

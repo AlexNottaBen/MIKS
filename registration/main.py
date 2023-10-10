@@ -32,18 +32,20 @@ def index():
         if password != confirm_password:
             return "<h1>Passwords do not match!<h1>"
         
-        user1 = UserBuilder(username, email, password, birthday) \
-            .set_full_name(full_name) \
-            .set_home_address(home_address) \
-            .set_phone_number(phone_number) \
-            .set_gender(gender) \
-            .set_card_number(card_number) \
-            .set_cardholder_name(cardholder_name) \
-            .set_card_expire_month(card_expire_month) \
-            .set_card_expire_year(card_expire_year) \
-            .build()
+        user_builder = UserBuilder(username, email, password, birthday)
         
-        return f'<h1>{user1}</h1>'.replace("\n","<br>")
+        user_builder.full_name = full_name
+        user_builder.home_address = home_address
+        user_builder.phone_number = phone_number
+        user_builder.gender = gender
+        user_builder.card_number = card_number
+        user_builder.cardholder_name = cardholder_name
+        user_builder.card_expire_month = card_expire_month
+        user_builder.card_expire_year = card_expire_year
+        
+        user = user_builder.build()
+        
+        return f'<h1>{user}</h1>'.replace("\n","<br>")
 
 
 def main():
