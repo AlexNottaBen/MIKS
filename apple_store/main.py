@@ -4,7 +4,8 @@
 from flask import Flask, render_template, request, redirect
 from random import choice
 
-from DeviceFactory import OriginalRefurbishedDeviceFactory, ReplicaDeviceFactory
+from OriginalRefurbishedDeviceFactory import OriginalRefurbishedDeviceFactory
+from ReplicaDeviceFactory import ReplicaDeviceFactory
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 
