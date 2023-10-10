@@ -19,4 +19,4 @@ class User:
         self.cardholder_name: str = cardholder_name
 
     def __str__(self) -> str:
-        return f"\nКористувач: {self.username},\n- Пошта: {self.email},\n- Повне ім'я: {self.full_name},\n- Рік народження: {self.birthday},\n- Домашня адреса: {self.home_address},\n- Номер телефону: {self.phone_number},\n- Стать: {self.gender},\n- Картка: {self.cardholder_name} {self.card_number}, буде не дійсною {self.card_expire_month} {self.card_expire_year}\n"
+        return f"\nUsername: {self.username},\n- email: {self.email},\n- Full name: {self.full_name},\n- Birthday: {self.birthday},\n- Home address: {self.home_address},\n- Phone number: {self.phone_number},\n- Gender: {self.gender},\n- Card: {self.cardholder_name} {self.card_number}, will be expire: {self.card_expire_month} {self.card_expire_year}\n"

@@ -30,7 +30,7 @@ def index():
         cardholder_name = request.form['cardholder-name']
         
         if password != confirm_password:
-            return "<h1>Паролі не збігаються!<h1>"
+            return "<h1>Passwords do not match!<h1>"
         
         user1 = UserBuilder(username, email, password, birthday) \
             .set_full_name(full_name) \

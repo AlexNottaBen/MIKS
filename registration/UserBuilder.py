@@ -14,7 +14,7 @@ class UserBuilder:
         self.birthday: str = birthday
         self.home_address: str = ''
         self.phone_number: str = ''
-        self.gender: str = 'не вказано'
+        self.gender: str = 'not mention'
         self.card_number: str = ''
         self.card_expire_month: str = ''
         self.card_expire_year: str = ''
