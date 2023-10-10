@@ -6,7 +6,11 @@ from User import User
 class UserBuilder:
     ''' Builder of user. '''
     
-    def __init__(self, username: str, email: str, password: str, birthday: str):
+    def __init__(self, username: str,
+                 email: str,
+                 password: str,
+                 birthday: str
+                 ):
         self.username: str = username
         self.email: str = email
         self.password: str = password
@@ -53,4 +57,17 @@ class UserBuilder:
         return self
 
     def build(self) -> User:
-        return User(self.username, self.email, self.password, self.full_name, self.birthday, self.home_address, self.phone_number, self.gender, self.card_number, self.card_expire_month, self.card_expire_year, self.cardholder_name)
+        return User(
+            self.username,
+            self.email,
+            self.password,
+            self.full_name,
+            self.birthday,
+            self.home_address,
+            self.phone_number,
+            self.gender,
+            self.card_number,
+            self.card_expire_month,
+            self.card_expire_year,
+            self.cardholder_name
+            )
