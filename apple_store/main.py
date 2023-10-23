@@ -1,11 +1,13 @@
 #! /usr/bin/python3
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, request, redirect
 from random import choice
+
+from flask import Flask, render_template, request, redirect
 
 from OriginalRefurbishedDeviceFactory import OriginalRefurbishedDeviceFactory
 from ReplicaDeviceFactory import ReplicaDeviceFactory
+
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 

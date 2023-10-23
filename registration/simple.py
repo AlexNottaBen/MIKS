@@ -3,6 +3,7 @@
 
 from UserBuilder import UserBuilder
 
+
 # Create a user with all options
 user1_builder = UserBuilder("tillman", "angeltillman@mail.org",
                     "gjherio5#@ajgerioh7",

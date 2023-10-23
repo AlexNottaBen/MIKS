@@ -3,6 +3,7 @@
 
 from User import User
 
+
 class UserBuilder:
     ''' Builder of user. '''
     
