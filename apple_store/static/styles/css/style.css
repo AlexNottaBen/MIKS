@@ -1,0 +1,38 @@
+* {
+  font-size: 24px;
+  color: black;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+form {
+  margin: auto auto;
+}
+
+button {
+  width: 200px;
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 15px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 16px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+button:hover {
+  text-decoration: underline;
+  background: yellow;
+  color: black;
+  cursor: pointer;
+}
+
+ol, ul {
+  margin-top: 5%;
+}/*# sourceMappingURL=style.css.map */

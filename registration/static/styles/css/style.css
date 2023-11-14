@@ -1,0 +1,37 @@
+.payment-images {
+  height: 25px;
+  margin-right: 5px;
+  margin-top: 1%;
+}
+.payment-images:last-child {
+  margin-right: 0;
+}
+
+.form-control {
+  margin-bottom: 2%;
+}
+
+.my-7percent {
+  margin-top: 7%;
+  margin-bottom: 7%;
+}
+
+.mt-1percent {
+  margin-top: 1%;
+}
+
+.mb-1percent {
+  margin-bottom: 1%;
+}
+
+b {
+  color: red;
+}
+
+.btn-primary:hover {
+  text-decoration: underline;
+  background: yellow;
+  color: black;
+  cursor: pointer;
+  border-color: #e6e600;
+}/*# sourceMappingURL=style.css.map */

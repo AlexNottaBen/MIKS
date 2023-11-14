@@ -1,5 +1,12 @@
 # MIKS
 
+## Abstract Factory
+![AbstractFactory](https://github.com/AlexNottaBen/MIKS/blob/Lab2/apple_store/uml/Abstract%20Factory%20Dark.png)
+
+## Builder
+![Builder](https://github.com/AlexNottaBen/MIKS/blob/Lab2/registration/uml/Builder%20Dark.png)
+
+## Information
 <table style="width: 100%;" border="1">
     <tbody>
         <tr>
