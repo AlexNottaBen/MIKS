@@ -1,25 +1,51 @@
 #! /usr/bin/python3
 # -*- coding: utf-8 -*-
 
-from flask import Flask, render_template, request
-# from flask_sqlalchemy import SQLAlchemy
+from flask import render_template, request, redirect
 
-
-app = Flask(
-    import_name=__name__,
-    template_folder="templates",
-    static_folder="static"
-)
+from app import app
+from Product import Product
+from ProductPhoto import ProductPhoto
+from Purchase import Purchase
 
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    products = Product.query.all()
+    photos = ProductPhoto.query.all()
+    return render_template("index.html", products=products, photos=photos)
 
 
 @app.route("/product/<int:id>")
 def product_page(id: int):
-    return render_template("product.html")
+    try:
+        product = Product.query.filter_by(id=id).first()
+        photos = ProductPhoto.query.all()
+        other_products_type = Product.query.filter_by(
+            type_of_product=product.type_of_product
+        )
+        other_products_collection = Product.query.filter_by(
+            collection=product.collection
+        )
+        return render_template(
+            "product.html",
+            product=product,
+            photos=photos,
+            other_products_type=other_products_type,
+            other_products_collection=other_products_collection,
+        )
+    except (AttributeError, UnboundLocalError) as exception:
+        print(exception)
+        return redirect("/")
+
+
+@app.route("/buy")
+def buy():
+    quantity = request.args["quantity"]
+    price = request.args["price"]
+    purchase = Purchase(price, quantity)
+    url = purchase.get_url()
+    return redirect(url)
 
 
 def main():

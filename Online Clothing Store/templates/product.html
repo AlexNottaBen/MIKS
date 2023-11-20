@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Home{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 {% block content %}
 <main>
     <div id="product-info" class="container">
@@ -10,73 +10,123 @@
                 </a>
             </li>
             <li class="breadcrumb-item">
-                <a href="#">Product name</a>
+                <a href="#">{{ product.name }}</a>
             </li>
         </ul>
         <div class="row">
             <div id="content" class="col">
                 <div class="row mb-3">
-                    <div class="col-sm">
+                    <div class="col-sm-5">
                         <div class="image magnific-popup">
-                            <a href="#1-800x800.jpg"
-                                title="Product name">
+                            {% if product.photos[0] %}
+                            <a href="{{ product.photos[0].url }}"
+                                title="{{ product.name }}">
                                 <img
-                                    src="#1-500x500.jpg"
-                                    title="Product name" alt="Product name" class="img-thumbnail mb-3"
+                                    src="{{ product.photos[0].url }}"
+                                    title="{{ product.name }}" alt="{{ product.name }}" class="img-thumbnail mb-3"
+                                    width="350px"
                                 >
                             </a>
                             <div>
-                                <a href="#4-800x800.jpg"
-                                    title="Product name"><img
-                                        src="#4-74x74.jpg"
-                                        title="Product name" alt="Product name" class="img-thumbnail"></a>&nbsp;
-                                <a href="#3-800x800.jpg"
-                                    title="Product name"><img
-                                        src="#3-74x74.jpg"
-                                        title="Product name" alt="Product name" class="img-thumbnail"></a>&nbsp;
-                                <a href="#5-800x800.jpg"
-                                    title="Product name"><img
-                                        src="#5-74x74.jpg"
-                                        title="Product name" alt="Product name" class="img-thumbnail"></a>&nbsp;
-                                <a href="#2-800x800.jpg"
-                                    title="Product name"><img
-                                        src="#2-74x74.jpg"
-                                        title="Product name" alt="Product name" class="img-thumbnail"></a>&nbsp;
-                                <a href="#6-800x800.jpg"
-                                    title="Product name"><img
-                                        src="#6-74x74.jpg"
-                                        title="Product name" alt="Product name" class="img-thumbnail"></a>&nbsp;
+                                {% endif %}
+                                {% if product.photos[0] %}
+                                <a href="{{ product.photos[0].url }}"
+                                    title="{{ product.name }}">
+                                    <img
+                                        src="{{ product.photos[0].url }}"
+                                        title="{{ product.name }}" alt="{{ product.name }}" class="img-thumbnail"
+                                        width="100px"
+                                    >
+                                </a>&nbsp;
+                                {% endif %}
+                                {% if product.photos[1] %}
+                                <a href="{{ product.photos[1].url }}"
+                                    title="{{ product.name }}">
+                                    <img
+                                        src="{{ product.photos[1].url }}"
+                                        title="{{ product.name }}" alt="{{ product.name }}" class="img-thumbnail"
+                                        width="100px"
+                                    >
+                                </a>&nbsp;
+                                {% endif %}
+                                {% if product.photos[2] %}
+                                <a href="{{ product.photos[2].url }}"
+                                    title="{{ product.name }}">
+                                    <img
+                                        src="{{ product.photos[2].url }}"
+                                        title="{{ product.name }}" alt="{{ product.name }}" class="img-thumbnail"
+                                        width="100px"
+                                    >
+                                    </a>&nbsp;
+                                {% endif %}
+                                {% if product.photos[3] %}
+                                <a href="{{ product.photos[3].url }}"
+                                    title="{{ product.name }}">
+                                    <img
+                                        src="{{ product.photos[3].url }}"
+                                        title="{{ product.name }}" alt="{{ product.name }}" class="img-thumbnail"
+                                        width="100px"
+                                    >
+                                </a>&nbsp;
+                                {% endif %}
+                                {% if product.photos[4] %}
+                                <a href="{{ product.photos[4].url }}"
+                                    title="{{ product.name }}">
+                                    <img
+                                        src="{{ product.photos[4].url }}"
+                                        title="{{ product.name }}" alt="{{ product.name }}" class="img-thumbnail"
+                                        width="100px"
+                                    ></a>&nbsp;
+                                {% endif %}
                             </div>
                         </div>
                     </div>
                     <div class="col-sm">
-                        <h1>Product name</h1>
-                        <ul class="list-unstyled">
-                            <li>Brand:
-                                <a href="#">Apple</a>
-                            </li>
-                            <li>Product Code: product 11</li>
-                            <li>Availability: In Stock</li>
-                        </ul>
+                        <h1>{{ product.name }}</h1>
+                        <br>
                         <ul class="list-unstyled">
                             <li>
-                                <h2><span class="price-new">$123.20</span></h2>
+                                <p>Brand: {{ product.brand }}</p>
+                            </li>
+                            <li>
+                                <p>Product Code: {{ product.product_code }}</p>
+                            </li>
+                            <li>
+                                <p>Type: {{ product.type_of_product }}</p>
+                            </li>
+                            <li>
+                                <p>Collection: {{ product.collection }}</p>
+                            </li>
+                            <li>
+                                <p>Availability: {{ product.availability }}</p>
                             </li>
                         </ul>
-                        <div id="product">
-                            <form id="form-product">
+                        <div id="product" x-data="{ price:{{ product.price }}, quantity:1 }">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <h2><span class="price-new" x-text="price*quantity"></span>.00 ₴</h2>
+                                </li>
+                            </ul>
+                            <form id="form-product" action="/buy">
                                 <div class="mb-3">
-                                    <label for="input-quantity" class="form-label">
-                                        <h3>Quantity</h3>
-                                    </label>
-                                    <input type="text"
-                                        name="quantity"
-                                        value="1"
-                                        size="2"
-                                        id="input-quantity"
-                                        class="form-control"
-                                    >
-                                    <div id="error-quantity" class="form-text"></div>
+                                    <div class="row">
+                                        <label for="quantity" class="form-label col-2">
+                                            <h3>Quantity</h3>
+                                        </label>
+                                        <input x-model="quantity" type="number"
+                                            name="quantity"
+                                            value="1"
+                                            size="2"
+                                            min="1"
+                                            max="20"
+                                            id="quantity"
+                                            class="form-control col-6"
+                                            style="width: 20%!important;"
+                                        >
+                                    </div>
+                                    {% if product %}
+                                    <input type="hidden" name="price" id="price" value="{{ product.price }}">
+                                    {% endif %}
                                     <br>
                                     <button type="submit" id="button-cart" class="btn btn-primary btn-lg btn-block">Buy now</button>
                                 </div>
@@ -94,7 +144,7 @@
                     <div id="tab-description" class="tab-pane fade show active mb-4" role="tabpanel"
                         aria-labelledby="description-tab">
                         <p class="intro">
-                            Description
+                            {{ product.description }}
                         </p>
                     </div>
                     <div id="tab-review" class="tab-pane fade">
@@ -111,7 +161,6 @@
                             <div class="mb-3 required">
                                 <label for="input-review" class="form-label">Your Review</label> <textarea name="text"
                                     rows="5" id="input-text" class="form-control"></textarea>
-                                <div id="error-text" class="invalid-feedback"></div>
                                 <div class="invalid-feedback"><span class="text-danger">Note:</span> HTML is not
                                     translated!</div>
                             </div>
@@ -124,33 +173,81 @@
                     </div>
                 </div>
             </div>
-            <h3>Related Products</h3>
+            <h3>Same type products</h3>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
                 <div class="col">
                     <div>
-                        <div class="product-thumb">
-                            <div class="image">
-                                <a href="#">
-                                    <img
-                                        src="#"
-                                        alt="Other product"
-                                        title="Other product"
-                                        class="img-fluid"
-                                    >
-                                </a>
-                            </div>
-                            <div class="content">
-                                <div class="description">
-                                    <h4><a href="">Other product</a></h4>
-                                    <p>
-                                        Other Description
-                                    </p>
-                                    <div class="price">
-                                        <span class="price-new">$110.00</span>
+                        {% for other_product in other_products_type %}
+                        <div class="header-cart">
+                            <div class="product-thumb">
+                                <div class="image mt-3">
+                                    {% if product.photos[0] %}
+                                    <a href="/product/{{ other_product.id }}">
+                                        <img
+                                            src="{{ other_product.photos[0].url }}"
+                                            alt="{{ other_product.name }}"
+                                            title="{{ other_product.name }}"
+                                            class="img-fluid"
+                                            width="200px"
+                                        />
+                                    </a>
+                                    {% endif %}
+                                </div>
+                                <div class="content">
+                                    <div class="description">
+                                        <h4>
+                                            <a href="/product/{{ other_product.id }}">{{ other_product.name }}</a>
+                                        </h4>
+                                        <p>
+                                            {{ other_product.description[:100] }}...
+                                        </p>
+                                        <div class="price">
+                                            <span class="price-new">{{ other_product.price }}.00	₴</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <h3>Same collection products</h3>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+                <div class="col">
+                    <div>
+                        {% for other_product in other_products_collection %}
+                        <div class="header-cart">
+                            <div class="product-thumb">
+                                <div class="image mt-3">
+                                    {% if product.photos[0] %}
+                                    <a href="/product/{{ other_product.id }}">
+                                        <img
+                                            src="{{ other_product.photos[0].url }}"
+                                            alt="{{ other_product.name }}"
+                                            title="{{ other_product.name }}"
+                                            class="img-fluid"
+                                            width="200px"
+                                        />
+                                    </a>
+                                    {% endif %}
+                                </div>
+                                <div class="content">
+                                    <div class="description">
+                                        <h4>
+                                            <a href="/product/{{ other_product.id }}">{{ other_product.name }}</a>
+                                        </h4>
+                                        <p>
+                                            {{ other_product.description[:100] }}...
+                                        </p>
+                                        <div class="price">
+                                            <span class="price-new">{{ other_product.price }}.00	₴</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
