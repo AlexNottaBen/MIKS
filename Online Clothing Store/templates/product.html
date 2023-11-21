@@ -104,7 +104,7 @@
                         <div id="product" x-data="{ price:{{ product.price }}, quantity:1 }">
                             <ul class="list-unstyled">
                                 <li>
-                                    <h2><span class="price-new" x-text="price*quantity"></span>.00 ₴</h2>
+                                    <h2><span class="price-new" x-text="price*Math.round(quantity)"></span>.00 ₴</h2>
                                 </li>
                             </ul>
                             <form id="form-product" action="/buy">
@@ -119,6 +119,7 @@
                                             size="2"
                                             min="1"
                                             max="20"
+                                            pattern="[0-9]+"
                                             id="quantity"
                                             class="form-control col-6"
                                             style="width: 20%!important;"
@@ -174,10 +175,10 @@
                 </div>
             </div>
             <h3>Same type products</h3>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
-                <div class="col">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4" >
+                {% for other_product in other_products_type %}
+                <div class="col" style="margin-left: 3%">
                     <div>
-                        {% for other_product in other_products_type %}
                         <div class="header-cart">
                             <div class="product-thumb">
                                 <div class="image mt-3">
@@ -208,15 +209,15 @@
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
+                {% endfor %}
             </div>
             <h3>Same collection products</h3>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
-                <div class="col">
+                {% for other_product in other_products_collection %}
+                <div class="col" style="margin-left: 3%">
                     <div>
-                        {% for other_product in other_products_collection %}
                         <div class="header-cart">
                             <div class="product-thumb">
                                 <div class="image mt-3">
@@ -247,9 +248,9 @@
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>

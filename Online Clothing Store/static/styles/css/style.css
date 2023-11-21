@@ -603,4 +603,8 @@ footer h5 {
 
 .list-unstyled {
   font-size: 20px;
+}
+
+footer a {
+  font-size: 14px !important;
 }/*# sourceMappingURL=style.css.map */
