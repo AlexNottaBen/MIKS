@@ -1,7 +1,7 @@
 # MIKS
 
 ## Bridge
-![Bridge]()
+![Bridge](./Online%20Clothing%20Store/uml/Bridge%20Dark.png)
 
 ## Facade
 ![Facade](./Service%20Requests/uml/Facade%20Dark.png)
