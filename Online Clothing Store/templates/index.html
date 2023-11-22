@@ -8,18 +8,17 @@
                 <h2>Featured</h2>
                 <div class="row">
                     {% for product in products %}
-                    <div class="col-md-3 col-sm-2" style="margin-left: 2%;">
+                    <div class="col-md-3 col-sm-2" style="margin-left: 5%;">
                         <div class="header-cart">
                             <div class="product-thumb">
-                                <div class="image mt-3">
+                                <div class="image-product mt-2 mx-5 mb-0">
                                     {% if product.photos[0] %}
                                     <a href="/product/{{ product.id }}">
                                         <img
                                             src="{{ product.photos[0].url }}"
                                             alt="{{ product.name }}"
                                             title="{{ product.name }}"
-                                            class="img-fluid"
-                                            width="200px"
+                                            class="img-fluid mt-2"
                                         />
                                     </a>
                                     {% endif %}
