@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="icon" href="./icons/favicon.ico"> -->
+    <!-- <link rel="shortcut icon" href="./icons/favicon.ico" type="image/x-icon"> -->
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="Awesome shirts, pants and more!">
+    <meta name="keywords" content="Clothing, Store, Shop">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/css/style.min.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" type="text/javascript"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+</head>
+<body>
+    <div id="top"></div>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-lg-4">
+                    <div id="logo">
+                        <h1>Online Clothing Store</h1>
+                    </div>
+                </div>
+                <div class="col-md-5"></div>
+                <div class="col-md-4 col-lg-3">
+                    <a
+                    href="tel:0956988884" style="margin-top: 5%; float: right; font-size: 20px;">
+                        <i class="fas fa-phone"></i>
+                        <span class="d-none d-md-inline">+380956988884</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div id="category" class="d-block d-sm-block d-lg-none"></div>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#narbar-menu"
+            >
+            <i class="fas fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="narbar-menu">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle"
+                            data-bs-toggle="dropdown">Department</a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-inner">
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="nav-link">Women's</a></li>
+                                    <li><a href="#" class="nav-link">Men's</a></li>
+                                    <li><a href="#" class="see-all nav-link">Girl's</a></li>
+                                    <li><a href="#" class="nav-link">Boy's</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle"
+                            data-bs-toggle="dropdown">Popular Shopping Ideas</a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-inner">
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="nav-link">Shirt</a></li>
+                                    <li><a href="#" class="nav-link">Pants</a></li>
+                                    <li><a href="#" class="nav-link">Shorts</a></li>
+                                    <li><a href="#" class="nav-link">Skirt</a></li>
+                                    <li><a href="#" class="nav-link">Dress</a></li>
+                                </ul>
+                            </div>
+                            <a href="#25" class="see-all">Show All</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link">Hats</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Shirt</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Shortss</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Dress</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    </div>{% block content %}{% endblock %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Information</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Terms
+                                &amp; Conditions</a></li>
+                        <li><a href="#">Delivery
+                                Information</a></li>
+                        <li><a href="#">About
+                                Us</a></li>
+                        <li><a href="#">Privacy
+                                Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Contact
+                                Us</a></li>
+                        <li><a href="#">Returns</a>
+                        </li>
+                        <li><a href="#">Site
+                                Map</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Extras</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Brands</a>
+                        </li>
+                        <li><a href="#">Gift
+                                Certificates</a></li>
+                        <li><a href="#">Affiliate</a>
+                        </li>
+                        <li><a href="#">Specials</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>My Account</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">My
+                                Account</a></li>
+                        <li><a href="#">Order
+                                History</a></li>
+                        <li><a href="#">Wish
+                                List</a></li>
+                        <li><a href="#">Newsletter</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p>Powered By <a href="https://www.python.org">Python</a><br /> Online Clothing Store &copy; 2023</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

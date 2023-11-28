@@ -1,10 +1,10 @@
 # MIKS
 
-## Abstract Factory
-![AbstractFactory](https://github.com/AlexNottaBen/MIKS/blob/Lab2/apple_store/uml/Abstract%20Factory%20Dark.png)
+## Bridge
+![Bridge](./Online%20Clothing%20Store/uml/Bridge%20Dark.png)
 
-## Builder
-![Builder](https://github.com/AlexNottaBen/MIKS/blob/Lab2/registration/uml/Builder%20Dark.png)
+## Facade
+![Facade](./Service%20Requests/uml/Facade%20Dark.png)
 
 ## Information
 <table style="width: 100%;" border="1">
