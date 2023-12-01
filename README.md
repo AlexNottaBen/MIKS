@@ -1,17 +1,17 @@
 # MIKS
 
-## Bridge
-![Bridge](./Online%20Clothing%20Store/uml/Bridge%20Dark.png)
+## Visitor
+![Visitor](./)
 
-## Facade
-![Facade](./Service%20Requests/uml/Facade%20Dark.png)
+## Command
+![Command](./)
 
 ## Information
 <table style="width: 100%;" border="1">
     <tbody>
         <tr>
             <td style="width: 50%;">Variant<br></td>
-            <td style="width: 50%;">17<br></td>
+            <td style="width: 50%;">17 + 32 = 49<br></td>
         </tr>
         <tr>
             <td style="width: 50%;">IDE<br></td>
