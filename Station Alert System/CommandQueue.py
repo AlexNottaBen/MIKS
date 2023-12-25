@@ -5,6 +5,7 @@ from random import randint
 
 from eel import sleep
 
+
 class CommandQueue:
     """
     Class for command queue
@@ -18,5 +19,5 @@ class CommandQueue:
 
     def process_commands(self) -> None:
         for command in self.queue:
-            sleep(randint(1,3))
+            sleep(randint(1, 3))
             command.execute()
