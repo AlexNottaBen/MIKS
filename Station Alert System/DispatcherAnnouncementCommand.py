@@ -12,7 +12,7 @@ class DispatcherAnnouncementCommand(ICommand):
     """
 
     def __init__(self, message: str) -> None:
-        self.message = message
+        self.message: str = message
 
     def execute(self) -> None:
         eel.append_dispatcher_alert(self.message)

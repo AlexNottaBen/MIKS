@@ -12,7 +12,7 @@ class CommandQueue:
     """
 
     def __init__(self) -> None:
-        self.queue = []
+        self.queue: list = []
 
     def add_command(self, command) -> None:
         self.queue.append(command)

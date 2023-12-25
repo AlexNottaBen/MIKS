@@ -12,7 +12,7 @@ class EmergencyAnnouncementCommand(ICommand):
     """
 
     def __init__(self, message: str) -> None:
-        self.message = message
+        self.message: str = message
 
     def execute(self) -> None:
         eel.append_emergency_alert(self.message)
