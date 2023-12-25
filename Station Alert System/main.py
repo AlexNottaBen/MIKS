@@ -1,10 +1,54 @@
 #! /usr/bin/python3
 # -*- coding: utf-8 -*-
 
+from os import path
+from sys import argv
 
-def main():
-    input()
+from eel import init, start
+
+from CommandQueue import CommandQueue
+from AnnouncementPlayer import AnnouncementPlayer
+from EmergencyAnnouncementCommand import EmergencyAnnouncementCommand
+from DispatcherAnnouncementCommand import DispatcherAnnouncementCommand
+from InformationAnnouncementCommand import InformationAnnouncementCommand
+from MarketingAnnouncementCommand import MarketingAnnouncementCommand
 
 
 if __name__ == "__main__":
-    main()
+
+    this_module_directory = path.dirname(path.abspath(argv[0]))
+
+    init(path=f"{this_module_directory}/templates")
+
+    # Create command objects of various types
+    emergency_command = EmergencyAnnouncementCommand(
+        "Emergency situation! Evacuate immediately!"
+    )
+    info_command = InformationAnnouncementCommand(
+        "Passenger announcement: John Doe, please come to the information desk."
+    )
+    dispatcher_command = DispatcherAnnouncementCommand(
+        "Train arrival: Express train from City A."
+    )
+    marketing_command = MarketingAnnouncementCommand(
+        "Special offer: Buy one, get one free!"
+    )
+
+    # Create an object for playing commands
+    player = AnnouncementPlayer()
+
+    # Reproduce the commands
+    player.play(emergency_command)
+    player.play(info_command)
+    player.play(dispatcher_command)
+    player.play(marketing_command)
+
+    # Add commands to the queue and play the queue
+    queue = CommandQueue()
+    queue.add_command(emergency_command)
+    queue.add_command(info_command)
+    queue.add_command(dispatcher_command)
+    queue.add_command(marketing_command)
+    queue.process_commands()
+
+    start("index.html", mode="false", shutdown_delay=100000, port=5000)
