@@ -7,5 +7,5 @@ class AnnouncementPlayer:
     A class for playing commands through a loudspeaker system
     """
 
-    def play(self, command):
+    def play(self, command) -> None:
         command.execute()

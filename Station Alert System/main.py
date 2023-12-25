@@ -4,7 +4,7 @@
 from os import path
 from sys import argv
 
-from eel import init, start
+from eel import init, start, expose, sleep
 
 from CommandQueue import CommandQueue
 from AnnouncementPlayer import AnnouncementPlayer
@@ -14,11 +14,19 @@ from InformationAnnouncementCommand import InformationAnnouncementCommand
 from MarketingAnnouncementCommand import MarketingAnnouncementCommand
 
 
-if __name__ == "__main__":
-
+def main() -> None:
     this_module_directory = path.dirname(path.abspath(argv[0]))
 
     init(path=f"{this_module_directory}/templates")
+
+    start("index.html", mode="false", shutdown_delay=100000, port=5000)
+
+
+@expose
+def begin_simulation() -> None:
+    print("Begin Simulation!")
+
+    sleep(1.0)
 
     # Create command objects of various types
     emergency_command = EmergencyAnnouncementCommand(
@@ -47,8 +55,18 @@ if __name__ == "__main__":
     queue = CommandQueue()
     queue.add_command(emergency_command)
     queue.add_command(info_command)
+    queue.add_command(info_command)
     queue.add_command(dispatcher_command)
+    queue.add_command(dispatcher_command)
+    queue.add_command(marketing_command)
+    queue.add_command(emergency_command)
+    queue.add_command(info_command)
+    queue.add_command(emergency_command)
+    queue.add_command(dispatcher_command)
+    queue.add_command(marketing_command)
     queue.add_command(marketing_command)
     queue.process_commands()
 
-    start("index.html", mode="false", shutdown_delay=100000, port=5000)
+
+if __name__ == "__main__":
+    main()

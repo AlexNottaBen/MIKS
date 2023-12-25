@@ -1,6 +1,8 @@
 #! /usr/bin/python3
 # -*- coding: utf-8 -*-
 
+import eel
+
 from abc import ABC, abstractmethod
 
 
@@ -8,7 +10,7 @@ class ICommand(ABC):
     """
     Command Interface
     """
-    
-    @abstractmethod
-    def execute(self):
+
+    @eel.expose
+    def execute(self) -> None:
         pass
