@@ -5,6 +5,7 @@ future==0.18.3
 gevent==23.9.1
 gevent-websocket==0.10.1
 greenlet==3.0.3
+pygame==2.5.2
 pyparsing==3.1.1
 whichcraft==0.6.1
 zope.event==5.0
