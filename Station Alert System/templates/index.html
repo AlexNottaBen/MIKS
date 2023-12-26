@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔴 Station Alert System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="eel.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-3" id="col-emergency">
+                    <h1>Emergency</h1>
+                </div>
+                <div class="col-3" id="col-information">
+                    <h1>Information</h1>
+                </div>
+                <div class="col-3" id="col-dispatcher">
+                    <h1>Dispatcher</h1>
+                </div>
+                <div class="col-3" id="col-marketing">
+                    <h1>Marketing</h1>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        colEmergency = document.getElementById("col-emergency");
+        colInformation = document.getElementById("col-information");
+        colDispatcher = document.getElementById("col-dispatcher");
+        colMarketing = document.getElementById("col-marketing");
+
+        eel.begin_simulation()
+
+        function appendEmergencyAlert(message) {
+            alertElement = document.createElement("div");
+            alertElement.className = "alert alert-warning";
+            alertElement.textContent = message;
+            colEmergency.appendChild(alertElement);
+        }
+
+        function appendInformationAlert(message) {
+            alertElement = document.createElement("div");
+            alertElement.className = "alert alert-primary";
+            alertElement.textContent = message;
+            colInformation.appendChild(alertElement);
+        }
+
+        function appendDispatcherAlert(message) {
+            alertElement = document.createElement("div");
+            alertElement.className = "alert alert-danger";
+            alertElement.textContent = message;
+            colDispatcher.appendChild(alertElement);
+        }
+
+        function appendMarketingAlert(message) {
+            console.info("appendMarketingAlert");
+            alertElement = document.createElement("div");
+            alertElement.className = "alert alert-success";
+            alertElement.textContent = message;
+            colMarketing.appendChild(alertElement);
+        }
+
+        eel.expose(appendEmergencyAlert, "append_emergency_alert");
+        eel.expose(appendInformationAlert, "append_information_alert");
+        eel.expose(appendDispatcherAlert, "append_dispatcher_alert");
+        eel.expose(appendMarketingAlert, "append_marketing_alert");
+    </script>
+</body>
+
+</html>
