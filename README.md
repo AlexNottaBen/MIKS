@@ -1,7 +1,7 @@
 # MIKS
 
 ## Visitor
-![Visitor](./)
+![Visitor](./Tamagotchi/uml/Visitor%20Dark.png)
 
 ## Command
 ![Command](./Station%20Alert%20System/uml/Command%20Dark.png)

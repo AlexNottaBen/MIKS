@@ -12,8 +12,8 @@ class Character(ICharacter):
         self.position_y: int = 400
         self.jump_power: int = 10
         self.jump_count: int = self.jump_power
-        self.sprite: Surface = sprite
         self.is_jump: bool = False
+        self.sprite: Surface = sprite
         self.current_bundle: str = "default"
 
     def accept(self, visitor) -> None:
