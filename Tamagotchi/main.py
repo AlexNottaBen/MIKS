@@ -9,6 +9,8 @@ import pygame
 from pygame import *
 
 from Character import Character
+from SeasonalActionContext import SeasonalActionContext
+from SeasonalActionImplementer import SeasonalActionImplementer
 
 
 def main() -> None:
@@ -39,18 +41,22 @@ def main() -> None:
     )
     is_show_special_window: bool = False
 
-    background_type = "default"
+    background_type: str = "default"
 
     clock = time.Clock()
 
-    while True:
+    context = SeasonalActionContext()
+    implementer = SeasonalActionImplementer()
+
+    is_running = True
+    while is_running:
+        clock.tick(30)  # set FPS
         meow_sound = mixer.Sound(
             f"{this_module_directory}/assets/sounds/meow{randint(1,3)}.ogg"
         )
         background = image.load(
             f"{this_module_directory}/assets/images/background_{background_type}.jpg"
         ).convert()
-        clock.tick(30)  # set FPS
         mouse = pygame.mouse.get_pressed()
         mouse_positions = pygame.mouse.get_pos()
 
@@ -65,8 +71,12 @@ def main() -> None:
         elif is_show_special_window and mouse[0]:
             is_show_special_window = False
             xmasbundle_button.set_alpha(1)
-            character.set_seasonal_bundle("xmas")
             background_type = "xmas"
+
+            context.activate_bundle("xmas")
+
+            if context.is_bundle_active("xmas"):
+                character.accept(implementer)
 
         if not character.is_jump:
             if mouse[0]:
@@ -101,7 +111,7 @@ def main() -> None:
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                exit()
+                is_running = False
 
         screen.blit(background, (0, 0))
         screen.blit(character.sprite, (character.position_x, character.position_y))

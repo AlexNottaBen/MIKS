@@ -16,11 +16,11 @@ class Character(ICharacter):
         self.is_jump: bool = False
         self.current_bundle: str = "default"
 
-    def accept(self, visitor):
+    def accept(self, visitor) -> None:
         visitor.visit(self)
 
     def change_sprite(self, sprite: Surface) -> None:
         self.sprite = sprite
 
-    def set_seasonal_bundle(self, bundle_name):
+    def set_seasonal_bundle(self, bundle_name) -> None:
         self.current_bundle = bundle_name
