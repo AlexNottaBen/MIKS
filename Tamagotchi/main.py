@@ -54,13 +54,18 @@ def main() -> None:
         mouse = pygame.mouse.get_pressed()
         mouse_positions = pygame.mouse.get_pos()
 
-        if mouse_positions[0] < 400 and mouse_positions[1] < 100 and mouse[0]:
+        if (
+            mouse_positions[0] < 400
+            and mouse_positions[1] < 100
+            and mouse[0]
+            and background_type != "xmas"
+        ):
             is_show_special_window = True
 
         elif is_show_special_window and mouse[0]:
             is_show_special_window = False
             xmasbundle_button.set_alpha(1)
-            character.change_suit("xmas")
+            character.set_seasonal_bundle("xmas")
             background_type = "xmas"
 
         if not character.is_jump:
@@ -74,21 +79,21 @@ def main() -> None:
                     character.position_y -= (character.jump_count**2) / 2
                     character.change_sprite(
                         sprite=image.load(
-                            f"{this_module_directory}/assets/images/cat_jump_{character.suit}.png"
+                            f"{this_module_directory}/assets/images/cat_jump_{character.current_bundle}.png"
                         )
                     )
                 else:
                     character.position_y += (character.jump_count**2) / 2
                     character.change_sprite(
                         sprite=image.load(
-                            f"{this_module_directory}/assets/images/cat_fall_{character.suit}.png"
+                            f"{this_module_directory}/assets/images/cat_fall_{character.current_bundle}.png"
                         )
                     )
                 character.jump_count -= 1
             else:
                 character.change_sprite(
                     sprite=image.load(
-                        f"{this_module_directory}/assets/images/cat_{character.suit}.png"
+                        f"{this_module_directory}/assets/images/cat_{character.current_bundle}.png"
                     )
                 )
                 character.is_jump = False
