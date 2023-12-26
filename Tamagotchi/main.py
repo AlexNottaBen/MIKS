@@ -3,6 +3,7 @@
 
 from os import path
 from sys import argv
+from random import randint
 
 import pygame
 from pygame import *
@@ -43,6 +44,9 @@ def main() -> None:
     clock = time.Clock()
 
     while True:
+        meow_sound = mixer.Sound(
+            f"{this_module_directory}/assets/sounds/meow{randint(1,3)}.ogg"
+        )
         background = image.load(
             f"{this_module_directory}/assets/images/background_{background_type}.jpg"
         ).convert()
@@ -61,6 +65,8 @@ def main() -> None:
 
         if not character.is_jump:
             if mouse[0]:
+                if special_window:
+                    meow_sound.play()
                 character.is_jump = True
         else:
             if character.jump_count >= -character.jump_power:
