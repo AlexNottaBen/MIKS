@@ -30,7 +30,6 @@ def main() -> None:
         f"{this_module_directory}/assets/font/Kingthings Christmas 2.2.ttf", 40
     )
     xmasbundle_button = label.render("Get Christmas Bundle", True, (255, 0, 0))
-    xmasbundle_button_collisionshape = xmasbundle_button.get_rect(topleft=(300, 300))
 
     character = Character(
         sprite=image.load(f"{this_module_directory}/assets/images/cat_default.png")
